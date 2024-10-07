@@ -19,12 +19,12 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
 
 <?php
 
-function createPassword (){
+function createPassword ($lengthPassword){
 
         $characters = [ "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", "&%?!=-^<>" ];
         $password = "";
         
-        for( $i = 0 ; $i < $_GET["userPw"] ; $i++){
+        for( $i = 0 ; $i < $lengthPassword ; $i++){
 
             $randCharacters = rand(0,3);
             $length = strlen($characters[$randCharacters]) - 1;
@@ -32,7 +32,8 @@ function createPassword (){
 
         }
         return $password;
-    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -57,9 +58,12 @@ function createPassword (){
                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                 <button type="reset" class="btn btn-danger btn-sm">Reset</button>
             </form>
-            
-                <?= "la tua password creata è:" . createPassword($_GET["userPw"]) ?>
-            
+                <?php 
+                    if (isset($_GET["userPw"])){
+                        echo "la tua password creata è: " . createPassword($_GET["userPw"]) ;
+
+                    } 
+                ?>            
             </div>
         </div>
     </main>
