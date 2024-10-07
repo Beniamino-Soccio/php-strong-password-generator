@@ -35,7 +35,7 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
         <div class="row justify-content-center">
             <div class="col-6">
             <h1 class="fw-bold fs-3 text-center my-4">Password Generator</h1>
-            <form>
+            <form action="index.php" method="get">
                 <div class="mb-3">
                     <label for="password" class="form-label">inserisci la lunghezza della password</label>
                     <input type="number" class="form-control" id="password" name="password" aria-describedby="emailHelp">
