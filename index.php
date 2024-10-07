@@ -31,6 +31,20 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
     <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
-    
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+            <h1 class="fw-bold fs-3 text-center my-4">Password Generator</h1>
+            <form>
+                <div class="mb-3">
+                    <label for="password" class="form-label">inserisci la lunghezza della password</label>
+                    <input type="number" class="form-control" id="password" name="password" aria-describedby="emailHelp">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                <button type="reset" class="btn btn-danger btn-sm">Reset</button>
+            </form>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
