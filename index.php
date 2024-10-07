@@ -19,6 +19,20 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
 
 <?php
 
+function createPassword (){
+
+        $characters = [ "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", "&%?!=-^<>" ];
+        $password = "";
+        
+        for( $i = 0 ; $i < $_GET["userPw"] ; $i++){
+
+            $randCharacters = rand(0,3);
+            $length = strlen($characters[$randCharacters]) - 1;
+            $password .= $characters[$randCharacters][rand(0, $length)];
+
+        }
+        return $password;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -35,14 +49,17 @@ Dare all’utente anche la possibilità di permettere o meno la ripetizione di c
         <div class="row justify-content-center">
             <div class="col-6">
             <h1 class="fw-bold fs-3 text-center my-4">Password Generator</h1>
-            <form action="index.php" method="get">
+            <form action="index.php" method="GET">
                 <div class="mb-3">
-                    <label for="password" class="form-label">inserisci la lunghezza della password</label>
-                    <input type="number" class="form-control" id="password" name="password" aria-describedby="emailHelp">
+                    <label for="userPw" class="form-label">inserisci la lunghezza della password</label>
+                    <input type="number" class="form-control" id="userPw" name="userPw" min="8" max="24" aria-describedby="emailHelp">
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                 <button type="reset" class="btn btn-danger btn-sm">Reset</button>
             </form>
+            
+                <?= "la tua password creata è:" . createPassword($_GET["userPw"]) ?>
+            
             </div>
         </div>
     </main>
